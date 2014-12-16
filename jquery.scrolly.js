@@ -14,7 +14,8 @@ function scrollyScroll(scrollStep, pagerID){
 			pagerContainer: 'body',
 			pagerID: 'full-pager',
 			pagerStepClass: 'scroll-step-pager-step',
-			pagerContent: '•'		
+			pagerContent: '•',
+			offset: 0
 		}
 		var options =  $.extend(defaults, options);
 		
@@ -38,7 +39,7 @@ function scrollyScroll(scrollStep, pagerID){
 
 		function scrollToSection(element, goingUp){
 			$('html, body').animate({
-				scrollTop: Math.ceil(element.offset().top+5)
+				scrollTop: Math.ceil(element.offset().top+5+options.offset)
 			});
 		}
 			
