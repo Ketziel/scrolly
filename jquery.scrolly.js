@@ -16,15 +16,20 @@ function scrollyScroll(scrollStep, pagerID, offset){
 			pagerID: 'full-pager',
 			pagerStepClass: 'scroll-step-pager-step',
 			pagerContent: '•',
-			offset: 0
+			offset: 0,
+			delimiter: ''
 		}
 		var options =  $.extend(defaults, options);
 		
 		var stepControl='';		
-
+		var stepCount = this.length;
+		
 		this.each(function(index) {
 			$(this).attr('data-scroll-order','scroll-step-'+index);
 			stepControl+='<li><a href="" class="'+options.pagerStepClass+'" id="scroll-step-'+index+'">'+options.pagerContent+'</a></li>';
+			if (options.delimiter != '' && stepCount != index+1){
+				stepControl+='<li>'+options.delimiter+'</li>';
+			}
 		});
 		if(stepControl!='') {
 			stepControl = '<ul id="'+options.pagerID+'">'+stepControl+'</ul>';
