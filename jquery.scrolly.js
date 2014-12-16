@@ -1,6 +1,7 @@
-function scrollyScroll(scrollStep, pagerID){
+//Scrolly
+function scrollyScroll(scrollStep, pagerID, offset){
 	scrollStep.each(function(){
-		if ($(this).offset().top<$(window).scrollTop() || $(window).scrollTop() + $(window).height() == $(document).height()){
+		if ($(this).offset().top<$(window).scrollTop()-offset || $(window).scrollTop() + $(window).height() == $(document).height()){
 			$('#'+pagerID+' li a').removeClass('active');
 			$('#'+pagerID+' li').find('#' + $(this).data('scroll-order')).addClass('active');
 		}
@@ -33,18 +34,18 @@ function scrollyScroll(scrollStep, pagerID){
 		}
 
 		$('#'+options.pagerID+' a').click(function(e){
-			scrollToSection($('*[data-scroll-order="' + ($(this).attr('id')) +'"]'), ($(this).parent().prevAll('.active').length > 0));
+			scrollToSection($('*[data-scroll-order="' + ($(this).attr('id')) +'"]'), ($(this).parent().prevAll('.active').length > 0), options.offset);
 			e.preventDefault();
 		});
 
-		function scrollToSection(element, goingUp){
+		function scrollToSection(element, goingUp, offset){
 			$('html, body').animate({
-				scrollTop: Math.ceil(element.offset().top+5+options.offset)
+				scrollTop: Math.ceil(element.offset().top+5+offset)
 			});
 		}
 			
 		$(window).bind('scroll',$.proxy(function(){
-		 scrollyScroll($(this), options.pagerID);
+		 scrollyScroll($(this), options.pagerID, options.offset);
 		}, this));
 		
 	};
