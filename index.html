@@ -1,0 +1,41 @@
+<!doctype html>
+	<head>
+		<style>
+			section {height: 30em; width: 100%;}
+			section.odd {background: green;}
+			section.even {background: blue;}
+			
+			#full-pager {position: fixed; top: 2em; left: 2em;}
+				#full-pager li {list-style: none; display: block;}
+					#full-pager li a{color: black;}
+					#full-pager li a.active{color: red;}
+		</style>
+		<script src="jquery-1.11.1.min.js"></script>
+		<script src="jquery.scrolly.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.scroll-step').scrolly();
+			});
+		</script>
+	</head>
+	<body>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+		<section class="scroll-step even"></section>
+		<section class="scroll-step odd"></section>
+	</body>
+</html>
