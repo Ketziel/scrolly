@@ -20,7 +20,7 @@ function scrollyScroll(scrollStep, pagerID, offset) {
             pagerContainer: 'body',
             pagerID: 'full-pager',
             pagerStepClass: 'scroll-step-pager-step',
-            pagerContent: '�',
+            pagerContent: '&#8226',
             offset: 0,
             delimiter: '',
             stepUp: '',
