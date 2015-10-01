@@ -1,28 +1,89 @@
 <!doctype html>
 	<head>
 		<style>
-			section {height: 30em; width: 100%;}
-			section.odd {background: green;}
-			section.even {background: blue;}
+            /* STYLES ARE FOR EXAMPLE ONLY */
+            /* You do not need to include any of the below styles for Scrolly to work. Hurray! */
+            ::selection {background-color:#FF69B4; background-color:rgba(330,59,100,.75); color: #fff;}
+            body {font-family: "Trebuchet MS", Helvetica, sans-serif; color: #fff; max-width: 1480px; margin: auto; position: relative; background-color:#656565; background-color:rgba(101,101,101,1);}
+            .page-wrapper {}
+            section {width: 100%; position: relative; padding-bottom: 1em; background-color:#252525; background-color:rgba(37,37,37,1);}
+                section > img {width: 100%;}
+            section .content-box {background-color:#000; background-color:rgba(0,0,0,.75); position: absolute; margin: auto; left: 0; right: 0; top: 0; bottom: 0; max-width: 26em; max-height: 5.5em; padding: 1em;}
+            section .content-box.bottom {max-height: 8em; top: 2.5em; bottom: auto;}
+            section .content-box.left {left: 2.5em; right: auto;}
+            section .content-box.right {right: 2.5em; left: auto;}
+                section .content-box > h1 { text-align: center; font-weight: 100; font-size: 4em; margin: 0; color: hotpink;}
+                section .content-box > p {text-align: center;}
+                    section .content-box > p > strong {font-weight: 100; font-size: 2.5em; margin: 0; color: hotpink;}
 			
-			#full-pager {position: fixed; top: 2em; left: 2em;}
+            footer {background-color:#151515; background-color:rgba(17,17,17,1); padding: 15em 0;}
+                footer p {text-align: center;}
+                    footer p a {color: hotpink;}
+                    footer p a:hover {color: fff;}
+            
+			#full-pager {position: fixed; top: 2em; left: 2em; background-color:#000; background-color:rgba(0,0,0,.75); padding: 1em; margin: 0;}
 				#full-pager li {list-style: none; display: block;}
-					#full-pager li a{color: black;}
-					#full-pager li a.active{color: red;}
+					#full-pager li a{background-color: hotpink; border: solid .5em #fff; width: .4em; height: .4em; display: block; border-radius: 100%; margin: .5em;}
+					#full-pager li a.active{background-color: #fff; border: solid .5em hotpink; }
 		</style>
 		<script src="jquery-1.11.1.min.js"></script>
 		<script src="jquery.scrolly.js"></script>
 		<script>
 			$(document).ready(function(){
-				$('.scroll-step').scrolly( {'delimiter':'-'});
+				$('.scroll-step').scrolly({'pagerContent':''});
 			});
 		</script>
 	</head>
 	<body>
-		<section class="scroll-step even"></section>
-		<section class="scroll-step odd"></section>
-		<section class="scroll-step even"></section>
-		<section class="scroll-step odd"></section>
-		<section class="scroll-step even"></section>
+
+        <section class="scroll-step">
+            <div class="content-box bottom">
+                <h1>Scrolly.js</h1>
+                <p>A sleek, easily set up pager for vertically scrolling sites.</p>
+            </div>
+            <img src="http://placekitten.com/g/1000/450">
+        </section>
+
+        <section class="scroll-step">
+            <img src="http://placekitten.com/g/1000/400">
+        </section>
+        
+        <section class="scroll-step">
+            <div class="content-box right">
+                <p><strong>Add</strong> as many Steps as you want...</p>
+            </div>
+            <img src="http://placekitten.com/g/1000/500">
+        </section>
+            
+        <section class="scroll-step">
+            <img src="http://placekitten.com/g/1000/350">
+        </section>
+        
+        <section class="scroll-step">
+            <div class="content-box left">
+                <p>...Just <strong>Stack</strong> whichever selectors you need...</p>
+            </div>
+            <img src="http://placekitten.com/g/1000/650">
+        </section>
+        
+        <section class="scroll-step">
+            <img src="http://placekitten.com/g/1000/300">
+        </section>
+        
+        <section class="scroll-step">
+            <img src="http://placekitten.com/g/1000/250">
+        </section>
+            
+        <section class="scroll-step">
+            <div class="content-box right">
+                <p>...And let <strong>Scrolly.js</strong> handle the rest.</p>
+            </div>
+            <img src="http://placekitten.com/g/1000/575">
+        </section>
+        
+        <footer>
+            <p>Full code can be found on <a href="https://github.com/Ketziel/scrolly" target="_blank">GitHub</a>.</p>
+        </footer>
+        
 	</body>
 </html>
