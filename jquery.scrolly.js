@@ -1,4 +1,4 @@
-function scrollyScroll(scrollStep, pagerID, offset) {
+function scrollyScroll(scrollStep, pagerID, offset, afterScrollStep) {
     scrollStep.each(function () {
         if (($(this).offset().top <= ($(window).scrollTop() - offset) && ($(this).offset().top + $(this).height()) >= ($(window).scrollTop() - offset)) || $(window).scrollTop() + $(window).height() == $(document).height()) {
             if($('#' + pagerID + ' li').find('#' + $(this).data('scroll-order')).hasClass('active') == false){
@@ -10,7 +10,7 @@ function scrollyScroll(scrollStep, pagerID, offset) {
                 if ($('.step-up').length) {
                     $('#' + pagerID + ' li').find('.step-down').attr('id', 'scroll-step-' + (parseInt((($(this).data('scroll-order')).slice(12)), 10) + 1))
                 };
-                //console.log(parseInt((($(this).data('scroll-order')).slice(12)), 10));
+                afterScrollStep(parseInt((($(this).data('scroll-order')).slice(12)), 10));
             }
         }
 
@@ -30,7 +30,8 @@ function scrollyScroll(scrollStep, pagerID, offset) {
             stepDown: '',
             toTop: '',
             toBottom: '',
-            hidePagers: false
+            hidePagers: false,
+            afterScrollStep: function(current){}
         }
         var options = $.extend(defaults, options);
         var stepControl = '';
@@ -76,7 +77,7 @@ function scrollyScroll(scrollStep, pagerID, offset) {
         }
 
         $(window).bind('scroll', $.proxy(function () {
-            scrollyScroll($(this), options.pagerID, options.offset);
+            scrollyScroll($(this), options.pagerID, options.offset, options.afterScrollStep);
         }, this));
 
     };
