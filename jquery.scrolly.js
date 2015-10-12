@@ -1,16 +1,19 @@
 function scrollyScroll(scrollStep, pagerID, offset) {
-
     scrollStep.each(function () {
-        if ($(this).offset().top < $(window).scrollTop() - offset || $(window).scrollTop() + $(window).height() == $(document).height()) {
-            $('#' + pagerID + ' li a').removeClass('active');
-            $('#' + pagerID + ' li').find('#' + $(this).data('scroll-order')).addClass('active');
-            if ($('.step-up').length) {
-                $('#' + pagerID + ' li').find('.step-up').attr('id', 'scroll-step-' + (parseInt((($(this).data('scroll-order')).slice(12)), 10) - 1))
-            };
-            if ($('.step-up').length) {
-                $('#' + pagerID + ' li').find('.step-down').attr('id', 'scroll-step-' + (parseInt((($(this).data('scroll-order')).slice(12)), 10) + 1))
-            };
+        if (($(this).offset().top <= ($(window).scrollTop() - offset) && ($(this).offset().top + $(this).height()) >= ($(window).scrollTop() - offset)) || $(window).scrollTop() + $(window).height() == $(document).height()) {
+            if($('#' + pagerID + ' li').find('#' + $(this).data('scroll-order')).hasClass('active') == false){
+                $('#' + pagerID + ' li a').removeClass('active');
+                $('#' + pagerID + ' li').find('#' + $(this).data('scroll-order')).addClass('active');
+                if ($('.step-up').length) {
+                    $('#' + pagerID + ' li').find('.step-up').attr('id', 'scroll-step-' + (parseInt((($(this).data('scroll-order')).slice(12)), 10) - 1))
+                };
+                if ($('.step-up').length) {
+                    $('#' + pagerID + ' li').find('.step-down').attr('id', 'scroll-step-' + (parseInt((($(this).data('scroll-order')).slice(12)), 10) + 1))
+                };
+                //console.log(parseInt((($(this).data('scroll-order')).slice(12)), 10));
+            }
         }
+
     });
 }
 
